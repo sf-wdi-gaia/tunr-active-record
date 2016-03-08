@@ -1,70 +1,26 @@
 # Tunr 1.0!
 
-We're going to be building Tunr, the worlds #1 music catalog / player (those
-Spotify haters can't keep up with us).
+## Local Setup
 
-## Part 1 - Database / Schema
+```
+$ createdb tunr_db
+$ psql -d tunr_db < db/schema.sql
+$ psql -d tunr_db < db/seeds.sql
+```
 
-In this exercise, your goal is to build out the schema for tunr, load it with
-seed data, and run some sample queries to explore the data.
-
-### Create the database
-
-Create a postgres database called `tunr_db`. Make sure to use that **exact**
-name, or you'll have trouble later on!
-
-### Create a schema
-
-Inside the db folder, create a `schema.sql` file, and then load it into your
-`tunr_db` database.
-
-Here's what our data model looks like:
-
-*Artists*
-
-| column name  | type |
-|--------------|------|
-| id   | primary key (int) |
-| name | text |
-| photo_url | text |
-| nationality | text |
-
-*Songs*
-
-| column name  | type |
-|--------------|------|
-|id | primary key (int) |
-|title | text |
-|album | text |
-|preview_url | text |
-|artist_id | foreign key (int) |
-
-### Load the Seed Data
-
-Use psql to load the seed data located in `db/seed.sql`
-
-### Play with the data
-
-Using `psql`, play with the database, come up with some interesting sample
-queries, and save them in a file in the db folder called `sample_queries.sql`
-
-## Part 2.1 - Create the Artist Model using Active Record
+## Part 1.1 - Create the Artist Model using Active Record
 
 1. Create an app.rb file for this application
 2. Create a Gemfile using `bundle init`
 3. Create a folder for your models (it should be called `models`)
 4. Create a file that will contain your AR class definition for 'artists'
 5. Add your dependencies into the Gemfile and then run `bundle install`
+6. Define your artist model in `models/artist.rb`
+7. Require your dependencies in `app.rb`
+8. Establish connection to database using AR
+9. Load pry at the end of `app.rb`
 
-
-## Part 2.2 - Define artists & setup your app.rb to connect to the database
-
-1. Define your artist model in `models/artist.rb`
-2. Require your dependencies in `app.rb`
-3. Establish connection to database using AR
-4. Load pry at the end of `app.rb`
-
-## Part 2.3 - Use your Artist Model
+## Part 1.2 - Use your Artist Model
 
 In the console:
 
@@ -78,13 +34,13 @@ In the console:
 8. Destroy the artist you just created
   - (NOTE: If you destroy other artists at this point, you'll need to reseed your data for consistency.)
 
-## Part 2.4 - Create your Song Model / Setup Associations
+## Part 1.3 - Create your Song Model / Setup Associations
 
 1. Create a file that will contain your AR class definition for Songs
 2. Make sure to link that file in your main application file
 3. Add corresponding associations to your models
 
-## Part 2.5 - Use your Model Associations
+## Part 1.4 - Use your Model Associations
 
 In the console...  
 
@@ -99,5 +55,3 @@ In the console...
 9. Delete that song
 10. Find all of Enya's songs again, store in a variable
   - Using `each`, iterate over those songs and for each song, print "I like" + the song name
-
-## Part 3 - Build a RESTful Interface using Sinatra

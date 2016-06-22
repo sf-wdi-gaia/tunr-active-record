@@ -6,6 +6,7 @@
 $ bundle install
 $ createdb tunr_db
 $ psql -d tunr_db < db/schema.sql
+$ psql -d tunr_db < db/seeds.sql
 ```
 
 ## Part 1.1 - Use your Artist Model

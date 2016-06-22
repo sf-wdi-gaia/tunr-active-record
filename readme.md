@@ -2,28 +2,13 @@
 
 ## Local Setup
 
-```
+```bash
+$ bundle install
 $ createdb tunr_db
 $ psql -d tunr_db < db/schema.sql
 ```
 
-## Part 1.1 - Create the Artist Model using Active Record
-
-1. Create an app.rb file for this application
-2. Create a Gemfile using `bundle init`
-3. Create a folder for your models (it should be called `models`)
-4. Create a file that will contain your AR class definition for 'artists'
-5. Add your dependencies into the Gemfile and then run `bundle install`
-
-
-## Part 1.2 - Define artists & setup your app.rb to connect to the database
-
-1. Define your artist model in `models/artist.rb`
-2. Require your dependencies in `app.rb`
-3. Establish connection to database using AR
-4. Load pry at the end of `app.rb`
-
-## Part 1.3 - Use your Artist Model
+## Part 1.1 - Use your Artist Model
 
 In the console:
 
@@ -37,13 +22,26 @@ In the console:
 8. Destroy the artist you just created
   - (NOTE: If you destroy other artists at this point, you'll need to reseed your data for consistency.)
 
-## Part 1.4 - Create your Song Model / Setup Associations
+### Bonus
+
+Add another column to your `artists` table called `year` with type integer by editing your `db/schema.sql`
+file. Then run reset your schema via the command line. Populate each artist with the appropriate year of origin.
+
+### Double Bonus
+
+Use [Active Record queries](http://guides.rubyonrails.org/active_record_querying.html#conditions) to find all artists:
+- since 2000
+- between 1970 and 1995
+- not in 2004 or 2015
+
+
+## Part 1.2 - Create your Song Model / Setup Associations
 
 1. Create a file that will contain your AR class definition for Songs
 2. Make sure to link that file in your main application file
 3. Add corresponding associations to your models
 
-## Part 1.5 - Use your Model Associations
+## Part 1.3 - Use your Model Associations
 
 In the console...  
 
@@ -58,3 +56,9 @@ In the console...
 9. Delete that song
 10. Find all of Enya's songs again, store in a variable
   - Using `each`, iterate over those songs and for each song, print "I like" + the song name
+
+# Bonus
+
+Add a new table `collaborations` to your application. Collaborations should join `artists` and `songs` should have `name` and `genre` columns. Change the relationships so that an `artist` has many `songs` and a `song` has many `artists` through `collaborations`
+
+Create at least 5 collaborations between `artists`

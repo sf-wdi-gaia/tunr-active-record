@@ -1,4 +1,4 @@
-# Tunr 1.0!
+# Tunr Lab
 
 ## Local Setup
 

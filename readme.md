@@ -9,7 +9,7 @@ $ psql -d tunr_db < db/schema.sql
 $ psql -d tunr_db < db/seeds.sql
 ```
 
-## Part 1.1 - Use your Artist Model
+## Part 1 - Use your Artist Model
 
 In the console:
 
@@ -36,13 +36,13 @@ Use [Active Record queries](http://guides.rubyonrails.org/active_record_querying
 - not in 2004 or 2015
 
 
-## Part 1.2 - Create your Song Model / Setup Associations
+## Part 2 - Create your Song Model / Setup Associations
 
 1. Create a file that will contain your AR class definition for Songs
 2. Make sure to link that file in your main application file
 3. Add corresponding associations to your models
 
-## Part 1.3 - Use your Model Associations
+## Part 3 - Use your Model Associations
 
 In the console...  
 
